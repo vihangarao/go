@@ -1,0 +1,36 @@
+Router - v2/life
+                                        Controller                            Service
+Insurance holding controller —> GetCustomerLifeInsurancePoliciesV2 —> GetCustomerLifeInsurancesV2
+
+Insurance holding service —> GetCustomerLifeInsurancesV2 —> GetCustomerLifeInsurances —>
+
+GetCustomerLifeInsurances —> getCustomerLifeInsurances —> GetCustomerLifeInsurancesPolicies
+
+getCustomerLifeInsurances —> produceLifeInsurances —> consumeLifeInsurances
+                            Client
+produceLifeInsurances —> GetCustomerLifeInsurances
+
+consumeLifeInsurances —>
+
+Customer life insurance mapper —> GetCustomerLifeInsurancesPolicies —> mapLifeInsurances
+
+Insurance_client —> GetCustomerLifeInsurances —>
+
+_______________________________________________________________________________________
+
+                                                                    Service
+Insurance Holding Controller - GetCustomerLifeInsurancePolicies —> GetCustomerLifeInsurances
+                                                                                            mapper
+Insurance Holding Service - GetCustomerLifeInsurances —>  getCustomerLifeInsurances —> GetCustomerLifeInsurancesPolicies —> GetAggregatedCustomerLifeInsurances
+
+getCustomerLifeInsurances —> produceLifeInsurances —> consumeLifeInsurances
+                                Client
+produceLifeInsurances —> GetCustomerLifeInsurances
+                                                mapper                            mapper                                mapper
+GetAggregatedCustomerLifeInsurances —> mapHDFCLifeInsurancePolicies —>mapICICIPrudentialInsurancePolicies —> mapBAJAJAllianzInsurancePolicies
+
+Customer Life Insurance Mapper —> GetCustomerLifeInsurancesPolicies —> mapLifeInsurances —> GetAggregatedCustomerLifeInsurances —> mapHDFCLifeInsurancePolicies —> mapICICIPrudentialInsurancePolicies —> mapBAJAJAllianzInsurancePolicies —>  all api’s calling —> mapTermInsurancePolicy —> mapULIPInsurancePolicy —> mapOtherInsurancePolicy
+                                                    mapper
+Insurance Client —> GetCustomerLifeInsurances —> GetCustomerLifeInsurancesClientRequest
+
+GetCustomerLifeInsurances —> MapClientResponseToCustomerLifeInsurancePolicies
